@@ -1,0 +1,16 @@
+Github:
+
+SSH
+----
+
+Keygen:
+$ ssh-keygen -t ed25519 -C "marcelo.carella@outlook.com.ar"
+
+cat ~/.ssh/id_ed25519.pub 
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDnGOolmHtQvRpJX2gzayGs8wso6eWFVpju6mNznQucF marcelo.carella@outlook.com.ar
+
+git remote set-url origin git@github.com:Dr-Oopart/NerdoDrome.git
+
+SSH REPO SET:
+git remote set-url origin git@github.com:USERNAME/REPONAME.git
