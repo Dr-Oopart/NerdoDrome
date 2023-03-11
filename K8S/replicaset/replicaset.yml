@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Replicaset
+metadata:
+  name: nginx-rs
+  labels:
+    app: cabalcorp
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: cabalcorp-pod
+      labels:
+        app: calebapp
+        type: front-end
+      spec:
+        containers:
+          - name: nginx-controller
+            image: nginx

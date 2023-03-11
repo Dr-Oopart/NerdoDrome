@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cabalcorp-deployment
+  labels:
+    tier: frontend
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: calebapp
+  replicas: 6
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: calebapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.18

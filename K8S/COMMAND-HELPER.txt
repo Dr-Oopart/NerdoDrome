@@ -1,0 +1,42 @@
+Concepts:
+
+Pod < ReplicaSet < Deployment 
+
+k8s commands
+============
+# Create objects:
+kubectl create -f <FILE>
+
+kubectl delete -f <FILE>
+
+# Update replicaset
+1) Update definition file
+2) Run: 
+kubectl replace -f replicaset-definition.yml
+
+# Alternative command:
+kubectl scale --replicas=6 -f replicaset-definition.yml
+
+# One liner to update after deployment:
+kubectl scale --replicas=6 replicaset myapp-replicaset
+
+#Edit number of replicas:
+kubectl scale replicaset cabalcorp-rs --replicas=2
+
+#Rollout/ Strategies:
+kubectl rollout status deployment/<DEPLOYMENTNAME>
+
+kubectl rollout history deployment/<DEPLOYMENTNAME>
+
+#Rolling Strategies:
+RollingUpdate = Default
+
+#Rollback:
+kubectl rollout undo deployment/<NAME>
+
+#Update values:
+kubectl set image deployment/cabalcorp-deployment \nginx=nginx:1.9.1
+
+#Export YAML file:
+kubectl get <OBJECT> <NAME> -n <NAMESPACE> -o yaml > service.yaml 
+kubectl get service hellworldexample-helloworld -n default -o yaml > service.yaml 
