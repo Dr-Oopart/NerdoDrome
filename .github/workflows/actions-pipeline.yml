@@ -8,9 +8,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  
   namespace:
-    needs: build
     runs-on: ubuntu-latest
     environment: DANTEKUBE
     steps:
