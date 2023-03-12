@@ -8,18 +8,15 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    environment: DANTEKUBE
-    steps:
-    - name: Checkout source code
-      uses: actions/checkout@v3
   
   namespace:
     needs: build
     runs-on: ubuntu-latest
     environment: DANTEKUBE
     steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+
     - name: Provision Namespace
       uses: actions-hub/kubectl@master 
       env:
@@ -32,6 +29,9 @@ jobs:
     needs: namespace
     environment: DANTEKUBE
     steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+
     - name: Provision NGINX Deployment
       uses: actions-hub/kubectl@master
       env:
