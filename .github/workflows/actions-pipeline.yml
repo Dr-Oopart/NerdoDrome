@@ -19,8 +19,13 @@ jobs:
     environment: DANTEKUBE
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions-hub/kubectl@master 
+    - name: Checkout source code
+      uses: actions/checkout@v3
+        path: './'
+
+    - name: Deploy
+      uses: actions-hub/kubectl@master 
       env:
         KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
       with:
-        args: apply -f ./namespace.yml
+        args: apply -f namespace.yml
